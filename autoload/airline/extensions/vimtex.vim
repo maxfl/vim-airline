@@ -8,13 +8,28 @@ function! s:SetDefault(var, val)
   endif
 endfunction
 
+" Left and right delimiters (added only when status string is not empty)
 call s:SetDefault( 'g:airline#extensions#vimtex#left',       "{")
 call s:SetDefault( 'g:airline#extensions#vimtex#right',      "}")
+
+" The current tex file is the main project file
 call s:SetDefault( 'g:airline#extensions#vimtex#main',       "" )
-call s:SetDefault( 'g:airline#extensions#vimtex#sub_local',  "l")
+"
+" The current tex file is a subfile of the project
+" and the compilation is set for the main file
 call s:SetDefault( 'g:airline#extensions#vimtex#sub_main',   "m")
+"
+" The current tex file is a subfile of the project
+" and the compilation is set for this subfile
+call s:SetDefault( 'g:airline#extensions#vimtex#sub_local',  "l")
+"
+" Compilation is running and continuous compilation is off
 call s:SetDefault( 'g:airline#extensions#vimtex#compiled',   "c₁")
+
+" Compilation is running and continuous compilation is on
 call s:SetDefault( 'g:airline#extensions#vimtex#continuous', "c")
+
+" Viewer is opened
 call s:SetDefault( 'g:airline#extensions#vimtex#viewer',     "v")
 
 function! airline#extensions#vimtex#init(ext)
